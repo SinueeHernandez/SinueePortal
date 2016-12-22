@@ -6,9 +6,10 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebApplication.Models
 {
-    // Add profile data for application users by adding properties to the ApplicationUser class
-    public class ApplicationUser : IdentityUser
+    public class Post
     {
-        public string Name {get; set;}
+        public string Content {get; set;}
+        public ApplicationUser Autor {get; set;}
+        public List<Comment> Comments {get; set;}
     }
 }
