@@ -8,8 +8,14 @@ namespace WebApplication.Controllers
 {
     public class Blog : Controller
     {
+
+        //
+        // GET: /Account/Login
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
+            
             return View();
         }
     }
