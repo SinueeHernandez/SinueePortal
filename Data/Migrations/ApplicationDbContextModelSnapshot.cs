@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using WebApplication.Data;
 
 namespace WebApplication.Data.Migrations
 {
@@ -142,8 +140,6 @@ namespace WebApplication.Data.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<string>("Name");
-
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
 
@@ -203,6 +199,8 @@ namespace WebApplication.Data.Migrations
                     b.Property<string>("AutorId");
 
                     b.Property<string>("Content");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 

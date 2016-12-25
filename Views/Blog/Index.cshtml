@@ -1,3 +1,8 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model Post
+
+
 @{
     ViewData["Title"] = "Blog";
 }
@@ -5,3 +10,16 @@
 <h3>@ViewData["Message"]</h3>
 
 <p>We are going to have the entries to the blog here.</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form asp-controller="Post" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+                <hr />
+                <div class="form-group">
+                    <label asp-for="Title" class="col-mod-2 control-label"></label>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

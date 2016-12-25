@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +10,16 @@ namespace WebApplication.Controllers
         // GET: /Account/Login
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult Index(string returnUrl = null)
         {
-            
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        public IActionResult NewPost()
+        {
+            ViewData["Title"] = "New Post creation";
+            ViewData["Message"] = "Create a new post here";
             return View();
         }
     }
