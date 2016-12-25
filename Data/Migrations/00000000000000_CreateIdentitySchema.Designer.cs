@@ -26,7 +26,7 @@ namespace WebApplication.Data.Migrations
                     b.Property<string>("Name")
                         .HasAnnotation("MaxLength", 256);
 
-                    b.Property<string>("NormalizedName")
+                    b.Property<int>("NormalizedName")
                         .HasAnnotation("MaxLength", 256);
 
                     b.HasKey("Id");
@@ -162,11 +162,11 @@ namespace WebApplication.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                    // b.HasIndex("NormalizedEmail")
+                    //     .HasName("EmailIndex");
 
-                    b.HasIndex("NormalizedUserName")
-                        .HasName("UserNameIndex");
+                    // b.HasIndex("NormalizedUserName")
+                    //     .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
                 });

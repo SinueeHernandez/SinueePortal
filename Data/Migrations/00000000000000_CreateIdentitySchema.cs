@@ -15,7 +15,7 @@ namespace WebApplication.Data.Migrations
                     Id = table.Column<string>(nullable: false),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    NormalizedName = table.Column<string>(nullable: true)
+                    NormalizedName = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -177,15 +177,6 @@ namespace WebApplication.Data.Migrations
                 table: "AspNetUserRoles",
                 column: "UserId");
 
-            migrationBuilder.CreateIndex(
-                name: "EmailIndex",
-                table: "AspNetUsers",
-                column: "NormalizedEmail");
-
-            migrationBuilder.CreateIndex(
-                name: "UserNameIndex",
-                table: "AspNetUsers",
-                column: "NormalizedUserName");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

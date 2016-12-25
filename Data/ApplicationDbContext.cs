@@ -14,6 +14,8 @@ namespace WebApplication.Data
             : base(options)
         {
         }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments {get;set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,6 +23,8 @@ namespace WebApplication.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+            builder.Entity<Post>().ToTable("Post");
+            builder.Entity<Comment>().ToTable("Comment");
         }
     }
 }
