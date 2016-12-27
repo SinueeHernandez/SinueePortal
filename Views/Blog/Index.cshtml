@@ -1,6 +1,6 @@
 @using System.Collections.Generic
 @using Microsoft.AspNetCore.Http
-@model Post
+@model IEnumerable<Post>
 
 
 @{
@@ -16,9 +16,14 @@
         <section>
             <form asp-controller="Post" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
                 <hr />
+                    @foreach (var item in Model)
+    {
                 <div class="form-group">
-                    <label asp-for="Title" class="col-mod-2 control-label"></label>
+                    @Html.DisplayFor(modelItem => item.Title)
+                    <p />
+                    @Html.DisplayFor(modelItem => item.Content)
                 </div>
+    }
             </form>
         </section>
     </div>
