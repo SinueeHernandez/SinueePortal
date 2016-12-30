@@ -11,5 +11,7 @@ namespace WebApplication.Models
         public string Content {get; set;}
         public ApplicationUser Autor {get; set;}
         public List<Comment> Comments {get; set;}
+        public string Summary {get;set;}
+        public Image Image {get; set;}
     }
 }

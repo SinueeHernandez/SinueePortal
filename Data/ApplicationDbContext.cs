@@ -12,6 +12,7 @@ namespace WebApplication.Data
         }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments {get;set;}
+        public DbSet<Image> Images {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -21,6 +22,7 @@ namespace WebApplication.Data
             // Add your customizations after calling base.OnModelCreating(builder);
             builder.Entity<Post>().ToTable("Post");
             builder.Entity<Comment>().ToTable("Comment");
+            builder.Entity<Image>().ToTable("Image");
         }
     }
 }

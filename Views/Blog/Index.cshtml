@@ -11,20 +11,23 @@
 
 <p>We are going to have the entries to the blog here.</p>
 
-<div class="row">
-    <div class="col-md-8">
-        <section>
-            <form asp-controller="Post" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
-                <hr />
-                    @foreach (var item in Model)
-    {
-                <div class="form-group">
-                    @Html.DisplayFor(modelItem => item.Title)
-                    <p />
+<section>
+    <form asp-controller="Post" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+        <hr />
+        <div class="container">
+            <div class="list-group">
+            @foreach (var item in Model)
+            {
+                <a href=# class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h4>
+                    <p class="list-group-item-text">
                     @Html.DisplayFor(modelItem => item.Content)
-                </div>
-    }
-            </form>
-        </section>
-    </div>
-</div>
+                    </p>
+                </a>
+            }
+            </div>
+        </div>
+    </form>
+</section>
