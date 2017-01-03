@@ -24,6 +24,14 @@ namespace WebApplication.Controllers
             return View(_DbContext.Posts.ToList());
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Post(int PostId, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View(_DbContext.Posts.FirstOrDefault(p => p.Id == PostId));
+        }
+
         public IActionResult NewPost()
         {
             return View();

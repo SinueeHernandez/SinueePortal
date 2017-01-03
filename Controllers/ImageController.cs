@@ -24,5 +24,17 @@ namespace WebApplication.Controllers
             Stream stream = new MemoryStream(imageResult.Data);
             return new FileStreamResult(stream, imageResult.Type);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Add(Image image)
+        {
+            if (ModelState.IsValid)
+            {
+                _DbContext.Images.Add(image);
+                _DbContext.SaveChanges();
+                return View(image);
+            }
+            return View(image);
+        }
     }
 }
