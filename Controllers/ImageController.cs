@@ -7,11 +7,11 @@ using System.IO;
 
 namespace WebApplication.Controllers
 {
-    public class ImageController: Controller
+    public class Image: Controller
     {
         private readonly ApplicationDbContext _DbContext;
 
-        public ImageController (ApplicationDbContext DbContext)
+        public Image (ApplicationDbContext DbContext)
         {
             _DbContext = DbContext;
         }
@@ -24,9 +24,15 @@ namespace WebApplication.Controllers
             Stream stream = new MemoryStream(imageResult.Data);
             return new FileStreamResult(stream, imageResult.Type);
         }
+
+        public IActionResult Add ()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Add(Image image)
+        public IActionResult Add(Models.Image image)
         {
             if (ModelState.IsValid)
             {
