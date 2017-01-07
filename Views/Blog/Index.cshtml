@@ -18,7 +18,7 @@
             <div class="list-group">
             @foreach (var item in Model)
             {
-                <a href=# class="list-group-item">
+                <a href="Blog/Post?PostId=@item.Id"  class="list-group-item">
                     <h4 class="list-group-item-heading">
                         @Html.DisplayFor(modelItem => item.Title)
                     </h4>

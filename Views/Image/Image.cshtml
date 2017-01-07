@@ -3,18 +3,16 @@
 @model Image
 
 <section>
-    <form asp-controller="Image" asp-action="Get" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+    <form asp-controller="Image" asp-action="GetImage" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
         <hr />
         <div class="container">
             <div class="list-group">
-                <a href=# class="list-group-item">
                     <h4 class="list-group-item-heading">
                         @Html.DisplayFor(modelItem => Model.Name)"."@Html.DisplayFor(modelItem => Model.Type)
                     </h4>
                     <p class="list-group-item-text">
                     @Html.DisplayFor(modelItem => Model.Data)
                     </p>
-                </a>
             </div>
         </div>
     </form>
