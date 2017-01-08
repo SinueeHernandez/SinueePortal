@@ -21,6 +21,7 @@
                         @Html.DisplayFor(modelItem => Model.Title)
                     </h4>
                     <p class="list-group-item-text">
+                        <img src="@Url.Action("GetImageForDisplay", "Image", new {ImageId = Model.Image.Id})"/>
                     @Html.DisplayFor(modelItem => Model.Content)
                     </p>
                 </a>
