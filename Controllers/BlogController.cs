@@ -29,7 +29,8 @@ namespace WebApplication.Controllers
         public IActionResult Post(int PostId, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View(_DbContext.Posts.FirstOrDefault(p => p.Id == PostId));
+            var postResutl = _DbContext.Posts.FirstOrDefault(p => p.Id == PostId);
+            return View(postResutl);
         }
 
         public IActionResult NewPost()

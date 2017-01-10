@@ -12,6 +12,7 @@ namespace WebApplication.Models
         public ApplicationUser Autor {get; set;}
         public List<Comment> Comments {get; set;}
         public string Summary {get;set;}
-        public Image Image {get; set;}
+        public int ImageId {get; set;}
+        public virtual Image Image {get; set;}
     }
 }
