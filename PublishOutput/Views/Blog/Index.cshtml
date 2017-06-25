@@ -1,0 +1,33 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model IEnumerable<Post>
+
+
+@{
+    ViewData["Title"] = "Blog";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>We are going to have the entries to the blog here.</p>
+
+<section>
+    <form asp-controller="Post" asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+        <hr />
+        <div class="container">
+            <div class="list-group">
+            @foreach (var item in Model)
+            {
+                <a href="Blog/Post?PostId=@item.Id"  class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h4>
+                    <p class="list-group-item-text">
+                    @Html.DisplayFor(modelItem => item.Content)
+                    </p>
+                </a>
+            }
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,25 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model Post
+
+
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<section>
+    <form asp-controller="Post" asp-action="Post" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+        <hr />
+        <div class="container">
+            <img src="@Url.Action("GetImageForDisplay", "Image", new {ImageId = Model.ImageId})" class="img-responsive"/>
+        </div>
+        <div class="container">
+                    <h2>
+                        @Html.DisplayFor(modelItem => Model.Title)
+                    </h2>
+                    <p>
+                    @Html.Raw(Model.Content)
+                    </p>
+        </div>
+    </form>
+</section>

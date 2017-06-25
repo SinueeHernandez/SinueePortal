@@ -1,0 +1,20 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@model Image
+
+<section>
+    <form asp-controller="Image" asp-action="GetImage" asp-route-returnurl="@ViewData["ReturnUrl"]" method="GET" class="form-horizontal">
+        <hr />
+        <div class="container">
+            <div class="list-group">
+                    <h4 class="list-group-item-heading">
+                        @Html.LabelFor(modelItem => Model.Name): @Html.DisplayFor(modelItem => Model.Name)
+                        @Html.LabelFor(modelItem => Model.Type):@Html.DisplayFor(modelItem => Model.Type)
+                    </h4>
+                    <p class="list-group-item-text">
+                    <img src="@Url.Action("GetImageForDisplay", "Image", new {ImageId = Model.Id})"/>
+                    </p>
+            </div>
+        </div>
+    </form>
+</section>
